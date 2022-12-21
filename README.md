@@ -8,6 +8,9 @@ A beautiful personal finance app to manage your monthly budget.
 2. CSS 3
 3. JavaScript ES5
 
+### live hosted on netlify
+https://melodious-blini-abd1f9.netlify.app/
+
 ### App features
 
 1. HTML/CSS code respects the W3C standard
