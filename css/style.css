@@ -42,7 +42,7 @@ body {
 
 .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/backTopDiv.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/background.avif);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -131,6 +131,9 @@ body {
 .add__container {
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
 }
 
 .add__type {
@@ -186,19 +189,19 @@ body {
 
 /***** LISTS *****/
 .container {
-    width: 1200px;
+    width: 100%;
+    display: flex;
     margin: 20px auto;
 }
 
 .income {
-    float: left;
-    width: 575px;
-    margin-right: 50px;
+    width: 50%;
+    padding: 10px 20px
 }
 
 .expenses {
-    float: left;
-    width: 575px;
+    width: 50%;
+    padding: 10px 20px
 }
 
 h2 {
@@ -217,15 +220,25 @@ h2 {
 .expenses__title { color: #FF5049;}
 
 .item {
-    padding: 13px;
-    border-bottom: 1px solid #e7e7e7;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 3px 2px 2px 2px #9d9d9d54;
+    padding: 20px 28px;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
-.item:first-child { border-top: 1px solid #e7e7e7; }
-.item:nth-child(even) { background-color: #f7f7f7; }
 
 .item__description {
     float: left;
+    margin: 7px 0px;
+    text-align: justify;
+}
+.item__time {
+    float: left;
+    color: #a16500;
+    font-weight: 600;
 }
 
 .item__value {
@@ -409,4 +422,60 @@ h2 {
     color: #FAFAFA;
     border-color: #000;
     background-color: #000;
+}
+
+@media (max-width:850px) {
+    .add__container {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .add__type{
+        width: 70%;
+        margin: 0px;
+        padding: 0px 20px;
+    }
+    .box{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .add__value {
+        width: 70%;
+    }
+    .add__description{
+        width: 70%;
+        margin: 10px 0px;
+    }
+}
+@media (max-width:500px) {
+    .add__type{
+        width: 100%;
+    }
+    .box{
+        width: 100%;
+    }
+    .add__description{
+        width: 100%;
+    }
+    .budget{
+        width: 90%;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .income{
+        width: 100%;
+    }
+    .expenses{
+        width: 100%;
+    }
+    .budget__income {
+        width: 100%;
+    }
+    .budget__expense {
+        width: 100%;
+    }
 }

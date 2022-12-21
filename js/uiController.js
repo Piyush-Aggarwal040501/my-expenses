@@ -70,14 +70,29 @@ var uiController = (function() {
                 // - transaction's HTML id (income-%id%),
                 // - the transaction description (%description%),
                 // - transaction's value(%value%)
-                transactionListItem = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete__btn"><i class="ion-ios-close"></i></button></div></div></div>';
+                transactionListItem = `<div class="item clearfix" id="inc-%id%">
+                                            <div class="item__time">%time%</div>
+                                            <div class="item__description">%description%</div>
+                                            <div class="right clearfix">
+                                                <div class="item__value">%value%</div>
+                                                <div class="item__delete"><button class="item__delete__btn"><i class="ion-ios-close"></i></button></div>
+                                            </div>
+                                        </div>`;
 
                 transListRootElemClass = prvDOMstrings.incomeContainer;
             }
             // if the type of transaction is an expense
             else if (type === "exp") {
 
-                transactionListItem = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">-</div><div class="item__delete"><button class="item__delete__btn"><i class="ion-ios-close"></i></button></div></div></div>';
+                transactionListItem = `<div class="item clearfix" id="exp-%id%">
+                                            <div class="item__time">%time%</div>
+                                            <div class="item__description">%description%</div>
+                                            <div class="right clearfix">
+                                                <div class="item__value">%value%</div>
+                                                <div class="item__percentage">-</div>
+                                                <div class="item__delete"><button class="item__delete__btn"><i class="ion-ios-close"></i></button></div>
+                                            </div>
+                                        </div>`;
 
                 transListRootElemClass = prvDOMstrings.expenseContainer;
             }
@@ -87,10 +102,9 @@ var uiController = (function() {
 
             // replace the dummy text in transactionListItem with actual data from the transaction object
             newTransactionListItem = transactionListItem.replace("%id%", transcation.id);
-            newTransactionListItem = newTransactionListItem.replace("%description%",
-                                                                    timeDateObj.timeDateCustomFormat + transcation.description);
-            newTransactionListItem =
-                newTransactionListItem.replace("%value%",                                       rpJSframework.pblFormatNumberUsingSystemLocale(transcation.value));
+            newTransactionListItem = newTransactionListItem.replace("%time%",timeDateObj.timeDateCustomFormat);
+            newTransactionListItem = newTransactionListItem.replace("%description%",transcation.description);
+            newTransactionListItem = newTransactionListItem.replace("%value%",rpJSframework.pblFormatNumberUsingSystemLocale(transcation.value));
 
             // select the transacton column father HTML element and insert the new transaction as it's first child
             // the newest transaction will be placed at the end of the income or expense column
